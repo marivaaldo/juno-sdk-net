@@ -1,3 +1,4 @@
+# juno-sdk-net
 .NET 5 wrapper for [Juno API 2.0](https://dev.juno.com.br/api/v2)
 
 ## How to Use
@@ -19,6 +20,42 @@ var client = new JunoClient(credentials, SandboxEnvironment.Instance);
 var service = new PublicKeysService(client);
 
 var publicKey = service.GetPublicKey(_Client.Credentials.PrivateToken);
+```
+
+SDK Extensions
+
+```csharp
+...
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+
+    var mvcBuilder = services.AddControllers();
+
+    // This configure Juno SDK
+    services.AddJunoSdk(mvcBuilder, credentials, sandbox: true);
+
+    ...
+}
+...
+```
+
+How to use
+
+```csharp
+...
+public class TestController : ControllerBase
+{
+    private readonly JunoServices _JunoServices;
+
+    public TestController(JunoServices junoServices)
+    {
+        _JunoServices = junoServices;
+    }
+
+    ...
+}
+...
 ```
 
 ## Links

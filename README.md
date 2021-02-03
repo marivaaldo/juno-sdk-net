@@ -22,6 +22,42 @@ var service = new PublicKeysService(client);
 var publicKey = service.GetPublicKey(_Client.Credentials.PrivateToken);
 ```
 
+SDK Extensions
+
+```csharp
+...
+public void ConfigureServices(IServiceCollection services)
+{
+    ...
+
+    var mvcBuilder = services.AddControllers();
+
+    // This configure Juno SDK
+    services.AddJunoSdk(mvcBuilder, credentials, sandbox: true);
+
+    ...
+}
+...
+```
+
+How to use
+
+```csharp
+...
+public class TestController : ControllerBase
+{
+    private readonly JunoServices _JunoServices;
+
+    public TestController(JunoServices junoServices)
+    {
+        _JunoServices = junoServices;
+    }
+
+    ...
+}
+...
+```
+
 ## Links
 
 - Juno Website: [juno.com.br](https://juno.com.br)
