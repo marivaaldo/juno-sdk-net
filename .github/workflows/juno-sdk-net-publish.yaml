@@ -15,7 +15,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0.x'
+        dotnet-version: '5.0.2'
     - name: Install dependencies
       run: cd src && dotnet restore Juno.Sdk.sln && cd ..
     - name: Build
