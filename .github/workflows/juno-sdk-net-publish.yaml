@@ -3,7 +3,7 @@ name: Juno SDK .NET - Release
 on:
   workflow_run:
     workflows: ["Juno SDK .NET - CI"]
-    branches: [ master ]
+    branches: [ main ]
     types:
       - completed
 
