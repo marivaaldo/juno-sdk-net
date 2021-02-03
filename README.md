@@ -1,6 +1,10 @@
 # juno-sdk-net
 .NET 5 wrapper for [Juno API 2.0](https://dev.juno.com.br/api/v2)
 
+![Juno SDK .NET - CI](https://github.com/marivaaldo/juno-sdk-net/workflows/Juno%20SDK%20.NET%20-%20CI/badge.svg)
+
+![Juno SDK .NET - Release](https://github.com/marivaaldo/juno-sdk-net/workflows/Juno%20SDK%20.NET%20-%20Release/badge.svg)
+
 ## How to Use
 
 This minimal example shows how to use Public Key Service.
