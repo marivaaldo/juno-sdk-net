@@ -40,11 +40,11 @@ namespace Juno.Sdk.Models.Requests
                     url += "/";
                 }
 
-                url += "/juno/wh/notifications";
+                url += "juno/wh/notifications";
 
                 if (QueryParameters != null && QueryParameters.Count > 0)
                 {
-                    url = $"?{QueryParameters.ToQueryString()}";
+                    url += $"?{QueryParameters.ToQueryString()}";
                 }
 
                 return url;
