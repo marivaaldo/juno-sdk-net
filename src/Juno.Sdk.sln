@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Juno.Sdk", "Juno.Sdk\Juno.Sdk.csproj", "{7B11E080-A598-4AF0-B3E9-EFC0837EF017}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Juno.Sdk.Tests", "Juno.Sdk.Tests\Juno.Sdk.Tests.csproj", "{9BE94E23-11AB-4FBF-9F22-971BB42AF311}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B11E080-A598-4AF0-B3E9-EFC0837EF017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B11E080-A598-4AF0-B3E9-EFC0837EF017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B11E080-A598-4AF0-B3E9-EFC0837EF017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B11E080-A598-4AF0-B3E9-EFC0837EF017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE94E23-11AB-4FBF-9F22-971BB42AF311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE94E23-11AB-4FBF-9F22-971BB42AF311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE94E23-11AB-4FBF-9F22-971BB42AF311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE94E23-11AB-4FBF-9F22-971BB42AF311}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE0DA40E-2966-4028-8B5A-27DAA8600ED2}
+	EndGlobalSection
+EndGlobal

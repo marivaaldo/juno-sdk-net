@@ -1,0 +1,29 @@
+name: Juno SDK .NET - Release
+
+on:
+  workflow_run:
+    workflows: ["Juno SDK .NET - CI"]
+    branches: [ master ]
+    types:
+      - completed
+
+jobs:
+  publish-nuget:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+    - name: Install dependencies
+      run: cd src && dotnet restore Juno.Sdk.sln && cd ..
+    - name: Build
+      run: cd src && dotnet build Juno.Sdk.sln --configuration Release --no-restore && cd ..
+    - name: Publish to NuGet
+      uses: brandedoutcast/publish-nuget@v2
+      with:
+        PROJECT_FILE_PATH: src/Juno.Sdk/Juno.Sdk.csproj
+        VERSION_REGEX: '^\s*<Version>(.*)<\/Version>\s*$'
+        TAG_FORMAT: '*'
+        NUGET_KEY: ${{secrets.NUGET_API_KEY}}
