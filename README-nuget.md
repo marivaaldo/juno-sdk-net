@@ -40,8 +40,6 @@ public void ConfigureServices(IServiceCollection services)
 ...
 ```
 
-How to use
-
 ```csharp
 ...
 public class TestController : ControllerBase
