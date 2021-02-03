@@ -56,6 +56,8 @@ public class TestController : ControllerBase
 ...
 ```
 
+Implements `IWebhooksHandler` from 'Juno.Sdk.Webhooks' namespace  to handle `webhooks` notifications.
+
 ## TO-DO
 - Implementar serviços de Assinaturas
 - Implementar serviços de Pagamento de Contas
