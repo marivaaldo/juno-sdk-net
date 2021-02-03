@@ -56,6 +56,12 @@ public class TestController : ControllerBase
 ...
 ```
 
+## Todo
+- Implementar serviços de Assinaturas
+- Implementar serviços de Pagamento de Contas
+- Implementar serviços do PicPay
+- Implementar serviços do Pix
+
 ## Links
 
 - Juno Website: [juno.com.br](https://juno.com.br)
