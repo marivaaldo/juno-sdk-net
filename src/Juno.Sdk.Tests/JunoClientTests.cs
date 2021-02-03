@@ -52,7 +52,7 @@ namespace Juno.Sdk.Tests
                     Number = "4",
                     Complement = "Armário debaixo da escada",
                     Neighborhood = "Surrey",
-                    City = "Little Whinging",
+                    City = "Caucaia",
                     State = AddressState.CE,
                     PostCode = "61611220"
                 },
@@ -116,7 +116,7 @@ namespace Juno.Sdk.Tests
                     Street = "Castelo de Hogwarts",
                     Number = "N/A",
                     Neighborhood = "Escola de Bruxaria",
-                    City = "Grã-Betanha",
+                    City = "Caucaia",
                     State = AddressState.CE,
                     PostCode = "61611220"
                 },
@@ -272,20 +272,37 @@ namespace Juno.Sdk.Tests
             Assert.IsTrue(eventTypes.Embedded.EventTypes.Count > 0);
 
             //
+            // Remove todos os webhooks
+
+            var oldWebhooks = service.ListWebhooks(_Client.Credentials.PrivateToken);
+
+            if (oldWebhooks != null && oldWebhooks.Embedded != null && oldWebhooks.Embedded.Webhooks != null)
+            {
+                foreach (var webhook in oldWebhooks.Embedded.Webhooks)
+                {
+                    service.DeleteWebhook(_Client.Credentials.PrivateToken, webhook.Id);
+                }
+            }
+
+            //
             // Criar webhook
 
             var allEventTypes = Enum.GetValues<Models.EventName>().ToList();
 
             var createWebhook = new Models.Requests.CreateWebhookResource.CreateWebhook
             {
-                Url = "https://6359f0559414.ngrok.io/juno/wh/notifications2?",
+                BaseUrl = "https://domain.com",
+                QueryParameters = new Dictionary<string, object>
+                {
+                    ["debug"] = true
+                },
                 EventTypes = Enum.GetValues<Models.EventName>().ToList()
             };
 
             var newWebhook = service.CreateWebhook(_Client.Credentials.PrivateToken, createWebhook);
 
             Assert.IsNotNull(newWebhook);
-            Assert.AreEqual(newWebhook.Url, createWebhook.Url);
+            Assert.AreEqual(newWebhook.Url.ToLower(), $"{createWebhook.BaseUrl}/juno/wh/notifications?debug=true".ToLower());
             Assert.IsTrue(newWebhook.EventTypes.Count == allEventTypes.Count);
 
             var newWebhookId = newWebhook.Id;
@@ -540,7 +557,7 @@ namespace Juno.Sdk.Tests
                         Number = "4",
                         Complement = "Armário debaixo da escada",
                         Neighborhood = "Surrey",
-                        City = "Little Whinging",
+                        City = "Caucaia",
                         State = AddressState.CE,
                         PostCode = "61611220"
                     },

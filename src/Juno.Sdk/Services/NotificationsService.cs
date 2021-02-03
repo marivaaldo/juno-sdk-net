@@ -43,9 +43,9 @@ namespace Juno.Sdk.Services
                 throw new ArgumentNullException(nameof(resourceToken));
             }
 
-            if (string.IsNullOrWhiteSpace(webhook.Url))
+            if (string.IsNullOrWhiteSpace(webhook.BaseUrl))
             {
-                throw new ArgumentNullException(nameof(webhook.Url));
+                throw new ArgumentNullException(nameof(webhook.BaseUrl));
             }
 
             if (webhook.EventTypes == null || webhook.EventTypes.Count == 0)
