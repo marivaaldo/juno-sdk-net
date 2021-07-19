@@ -48,6 +48,11 @@ namespace Juno.Sdk.Models
         /// </summary>
         BILL_PAYMENT_STATUS_CHANGED,
 
+        /// <summary>
+        /// Confirmação de criação de uma conta digital - Válido somente para a solução Whitelabel
+        /// </summary>
+        DIGITAL_ACCOUNT_CREATED,
+
         //CHARGE_CREATED,
 
         //PAYMENT_RECEIVED
@@ -97,6 +102,8 @@ namespace Juno.Sdk.Models
 
         CHARGE_CREATED,
 
-        PAYMENT_RECEIVED
+        PAYMENT_RECEIVED,
+
+        DIGITAL_ACCOUNT_CREATED
     }
 }
